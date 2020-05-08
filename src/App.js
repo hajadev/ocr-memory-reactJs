@@ -24,8 +24,8 @@ class App extends Component {
     return shuffle(result)
   }
 
-  handleCardClick(card) {
-    console.log(card, 'clicked')
+  handleCardClick = (card) => {
+    console.log(card, 'clicked', this)
   }
 
   render() {
@@ -35,7 +35,7 @@ class App extends Component {
       <div className="memory">
         <GuessCount guesses={0} />
         {this.cards.map((card, index) => (
-          <Card card={card} feedback="visible" key={index} onClick={this.handleCardClick}/>
+          <Card card={card} feedback="visible" key={index} onClick={this.handleCardClickFixed}/>
         ))}
         {won && <HallOfFame entries={FAKE_HOF} />}
       </div>
